@@ -21,4 +21,4 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 breckies dumb ancient operating system wont run git,
 I have no idea what I am doing. This is slightly terrifying.
-Hurray! Breckie's computer may still be dumb and ancient, but it is no longer terrifying and will "Possibly" use Git now. Cross your fingers! things are hopeful now
+Hurray! Breckie's computer may still be dumb and ancient, but it is no longer terrifying and will "Possibly" use Git now. Cross your fingers! things are hopeful now. okay i think its working
