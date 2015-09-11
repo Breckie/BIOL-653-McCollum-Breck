@@ -21,4 +21,8 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 breckies dumb ancient operating system wont run git,
 I have no idea what I am doing. This is slightly terrifying.
-Hurray! Breckie's computer may still be dumb and ancient, but it is no longer terrifying and will "Possibly" use Git now. Cross your fingers! things are hopeful now. okay i think its working
+Hurray! Breckie's computer may still be dumb and ancient, but it is no longer terrifying and will "Possibly" use Git now. Cross your fingers! things are hopeful now. okay i think its working.
+
+Okay, day 2. I am a little less frustrated. Here is what I think is going on: You open your Rmarkdown writing project in Rstudio. This is where you do your writing, editing, creating, etc...Then if you want to send it to Git Hub to back up, you need to save the edits in Rstudio, then commit it in Git, then push it to your repository on Git Hub.
+
+
