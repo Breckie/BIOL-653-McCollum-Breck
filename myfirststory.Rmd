@@ -25,4 +25,20 @@ Hurray! Breckie's computer may still be dumb and ancient, but it is no longer te
 
 Okay, day 2. I am a little less frustrated. Here is what I think is going on: You open your Rmarkdown writing project in Rstudio. This is where you do your writing, editing, creating, etc...Then if you want to send it to Git Hub to back up, you need to save the edits in Rstudio, then commit it in Git, then push it to your repository on Git Hub.
 
+So, it's slightly more complicated than previously described. Before you can simply "commit"" the changes and "push" them out to GitHub, you need to stage them. Let me back up a little first.
+
+After saving in Rstudio, you open Terminal and see what directory you are working in. This is normally listed in the command line as the word immediately before your name, my name is "breckmcc$". The current directory of this file is R_projects, homework, myfirststory.Rmd. To get into the homework directory, type "cd". This takes you home from wherever you are. Then type "ls", this lists all the contents of that directory. Then type "cd and the name of the directory you want to open", such as "cd homework". 
+
+Now that you know where you are, you can begin the add, stage, commit, pull, push process.
+
+Step 1:
+  git status
+This will tell you if you are ready to proceed. If you get the error "Not a git repository (or any of the parent directories)" this means you are likely in the wrong directory or back at your home place by mistake. See above for how to get to the proper directory.
+
+You should see something along the lines of "nothing added to commit but untracked files present (use "git add" to track)".
+
+Step 2
+  git add filename.Rmd
+This current file you are reading was created as an Rmarkdown file, hence the affix .Rmd (The capitol R is very important).
+
 
