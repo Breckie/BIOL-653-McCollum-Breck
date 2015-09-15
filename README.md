@@ -15,6 +15,8 @@ In order to create Headers and Titile lines of text in different font sizes, typ
 
 If you want some text to be bold, type ** on either side of your text, like "asterisk asterisk bold asterisk asterisk", 
 Which looks like **bold**
+
+
 If you want some text to be italicized, type * on either side of your text, like "asterisk Macrocystis pyrifera asterisk",
 Which looks like *Macrocystis pyrifera*, or *italics*
 
