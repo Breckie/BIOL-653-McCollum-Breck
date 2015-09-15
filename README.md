@@ -22,8 +22,9 @@ Which looks like *Macrocystis pyrifera*, or *italics*
 
 If you want to make a line that looks a bit like a page break that can be used to separate ideas more drastically than a new paragraph,
 
-Type: 
+Type: "asterisk asterisk asterisk", which looks like:
 ***
+
 Likewise, if you want to quote someone with more emphasis than just using quotation marks (good for take home messages), Type:
 > Take Home Message
 
