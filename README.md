@@ -9,20 +9,20 @@ One thing I did learn today is that typing "#" in front of my text doesn't do wh
 
 Work in progress, ya'll.
 
+So, once I get better at depositing content in this here repository, it will need to be formatted. At the moment i am pretty bad at formatting as I go so consider this a "cheat sheet" or reminder of how to make things less ugly.
 
-## breckmccmoney is now changing into homework folder and will be renamed shortly. It is possible the directory will remain the same as it is not appearing as the *more-professionally-named* "BIOL-653-McCollum-Breck"
+You can reformat text using some standardized syntax right in RStudio.
+Once you get the hang of it, you might even remember these things and be able to type them right as you go in RStudio. Wouldn't that be great!
 
-Still working on figuring out how to edit a readme, but my first one was kind of a disaster so I will try again here. 
-This homework folder/repository is currently empty but I am going to try to copy the contents of the breckmcmoney folder over here, or just rename the old one, though perhaps I can't have two repositories with the same nema.
 
-ANYWAY, once I have some content in this here repository, it will need to be formatted.
-The old "My First Story" story is pretty ugly as is. You can change this using some standardized syntax right in RMarkdown.
+## ANYWAY, here are some instructions for making things prettier, less embarrassing, and/or emphasizing things that need emphasis:
 
-So here are some instructions for making things prettier and/or emphasizing things that need emphasis:
+***
 
-There is an easy way to create Headers and Titile lines of text in different font sizes.
 
-For extra large font type "hashtag" or "pound sign" (depending on your generation) "space" text, such as:
+First of all, there is an easy way to create Headers and Titile lines of text in different font sizes.
+
+For example, let's say something is really important and you want to type it in extra large font, type one "hashtag" or "pound sign" (depending on your generation) and a space, in front of your text, such as:
 # Header 1
 
 For large font type two "hashtags" or "pound signs" before a space and your text: 
@@ -38,7 +38,7 @@ If you want some text to be italicized, type just one asterisk on either side of
 
 If you want to make a line that looks a bit like a page break that can be used to separate ideas more drastically than a new paragraph,
 
-Type three asterisks in a row all by themselves like
+Type three asterisks in a row all by themselves like...
 
 asterisk asterisk asterisk
 to get this:
