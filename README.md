@@ -1,6 +1,11 @@
 This file provides basic instructions in my own style of language for getting started using Rmarkdown, Git, and Github. 
 
 
+Okay, somehow I just fucked this readme all up. I think maybe git or I (most likely I) freaked out when some one else changed things via github so I just deleted everything between "<<<<<<<< Head" and ">>>>>>>>>" as according to "https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/" Anyway, while deleting all new changes is kind of rude to my co-author, it seems to have taken care of the "unmerged paths" or whatever the hissy fit git was having in terminal. I just wanted to submit my homework issues to Jillian! I really didn't care about README at the moment, but now it is all screwed up, and ugly, and stuff is missing, and I have no idea what happened.
+
+Work in progress, ya'll.
+
+
 # breckmccmoney is now changing into homework folder and will be renamed shortly. It is possible the directory will remain the same as it is not appearing as the *more-professionally-named* "BIOL-653-McCollum-Breck"
 
 Still working on figuring out how to edit a readme, but my first one was kind of a disaster so I will try again here. 
