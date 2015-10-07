@@ -2,22 +2,22 @@ This file provides basic instructions in my own style of language for getting st
 
 # This is the repository formerly known as breckmccmoney. It will now be the location of all homework assignments.
 
+***
 Okay, somehow I just (as of the afternoon of 9/7/15) fucked this readme all up. I think maybe git or I (most likely I) freaked out when some one else changed things via github so I just deleted everything between "<<<<<<<< Head" and ">>>>>>>>>" as according to "https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/" Anyway, while deleting all new changes is kind of rude to my co-author, it seems to have taken care of the "unmerged paths" or whatever the hissy fit git was having in terminal. I just wanted to submit my homework issues to Jillian! I really didn't care about README at the moment, but now it is all screwed up, and ugly, and stuff is missing, and I have no idea what happened.
 
 One thing I did learn today is that typing "#" in front of my text doesn't do what I think it does, instead it just make my font extra large. That is obnoxious and I appologize. Maybe that is an R thing? Anyway I am going to stop doing that...
 
 
 Work in progress, ya'll.
+***
 
-So, once I get better at depositing content in this here repository, it will need to be formatted. At the moment i am pretty bad at formatting as I go so consider this a "cheat sheet" or reminder of how to make things less ugly.
+### So, once I get better at depositing content in this here repository, it will need to be formatted. At the moment I am pretty bad at formatting as I go so consider this a "cheat sheet" or reminder of how to make things less ugly.
 
-You can reformat text using some standardized syntax right in RStudio.
-Once you get the hang of it, you might even remember these things and be able to type them right as you go in RStudio. Wouldn't that be great!
+### You can reformat text using some standardized syntax right in RStudio. Once you get the hang of it, you might even remember these things and be able to type them right as you go in RStudio. Wouldn't that be great!
 
 
 ## ANYWAY, here are some instructions for making things prettier, less embarrassing, and/or emphasizing things that need emphasis:
 
-***
 
 
 First of all, there is an easy way to create Headers and Titile lines of text in different font sizes.
