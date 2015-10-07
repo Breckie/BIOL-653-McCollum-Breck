@@ -1,9 +1,12 @@
 This file provides basic instructions in my own style of language for getting started using Rmarkdown, Git, and Github. 
 
-# breckmccmoney is now changing into homework folder and will be renamed shortly
+
+# breckmccmoney is now changing into homework folder and will be renamed shortly. It is possible the directory will remain the same as it is not appearing as the *more-professionally-named* "BIOL-653-McCollum-Breck"
 
 Still working on figuring out how to edit a readme, but my first one was kind of a disaster so I will try again here. 
 This homework folder/repository is currently empty but I am going to try to copy the contents of the breckmcmoney folder over here, or just rename the old one, though perhaps I can't have two repositories with the same nema.
+
+# This is the repository formerly known as breckmccmoney. It will now be the location of all homework assignments.
 
 ANYWAY, once I have some content in this here repository, it will need to be formatted.
 The old "My First Story" story is pretty ugly as is. You can change this using some standardized syntax right in RMarkdown.
@@ -15,6 +18,7 @@ In order to create Headers and Titile lines of text in different font sizes, typ
 # Header 1
 ## Header 2
 ### Header 3
+
 
 If you want some text to be bold, type ** on either side of your text, like **bold**
 If you want some text to be italicized, type * on either side of your text, like *Macrocystis pyrifera*, or *italics*
