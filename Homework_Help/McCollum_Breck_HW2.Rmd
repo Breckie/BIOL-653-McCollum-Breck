@@ -78,11 +78,18 @@ p2 + geom_smooth(method = lm)
 
 ?geom_smooth
 
-### Nope still doesn't make sense. Back to google...
 
+### Nope still doesn't make sense. Back to google...
+```{r}
 p2 + geom_smooth(model = "lm", se = TRUE)
 p2 + geom_smooth(method = "x", se = TRUE)
 p2 + geom_line()
+```
+
+*You were super close here. Go back to the ggplot2 notes posted online. Maybe try moving some of the aesthetics values into the aesthetics of geom_point() only.   
+
+See this answer as an example  
+http://stackoverflow.com/questions/16562859/ggplot2-colour-geom-point-by-factor-but-geom-smooth-based-on-all-data
 
 ### Yikes, undo! Now I am headed in the wrong direction...There must be some way I can do an overall linear regression, rather than one for each continent...
 
@@ -136,11 +143,15 @@ ggplot(data = gapminder, aes(x = lifeExp, color = continent)) + geom_density(ker
 
 ### WTF? Is this correct? It looks pretty good...No, not quite. I need to put them in 3 rows rather than a line...I wonder why "fl ~ year" didn't work?
 
+*Note* What is fl? Is it an object that *you* have in gapminder?
+
+```{r}
 ggplot(data = gapminder, aes(x = lifeExp, color = continent)) + geom_density(kernel = "gaussian") + facet_grid(. ~ year)
 
 ggplot(data = gapminder, aes(x = lifeExp, color = continent)) + geom_density(kernel = "gaussian") + facet_grid( ~ fl)
 
 ggplot(data = gapminder, aes(x = lifeExp, color = continent)) + geom_density(kernel = "gaussian") + facet_wrap( ~ year)
+```
 
 ### Okay, interesting. Maybe the ggplot2 cheat sheet is wrong on this one? Anyway, this looks good. Now, I need to fill and make fills transparent.
 
@@ -157,6 +168,8 @@ ggplot(data = gapminder, aes(x = lifeExp, color = continent, fill= continent)) +
 ggplot(data = gapminder, aes(x = lifeExp, color = continent, fill = continent)) + geom_density(kernel = "gaussian", alpha = 0.4) + facet_wrap( ~ year)
 
 ### That looks pretty good, again thank to google for the transparency/alpha help. Not sure how to make my outlines black though... maybe color and fill are redundant?
+
+**Almost!** fill is for blocky geoms like densities and rectangles and ribbons, etc., colour does lines and points.  
 
 ggplot(data = gapminder, aes(x = lifeExp, fill = continent)) + geom_density(kernel = "gaussian", alpha = 0.4) + facet_wrap( ~ year)
 
@@ -259,6 +272,11 @@ ggplot(data = gapminder[ ,c(2,4)], aes(x = lifeExp, fill = Asia)) + geom_density
 ggplot(data = gapminder[ , 2], aes(x = lifeExp, fill = continent)) + geom_density(kernel = "gaussian", alpha = 0.5)
 
 
+**Hint** these are the arguments for filter  
+filter(dataframe\_of\_interest, col\_of\_interest == what\_you\_want)
+
+
+
 ### Okay so I am not getting any closer with this one. I need to take a break and move on to the next question.
 
 library(ggplot2)
@@ -267,3 +285,6 @@ hw_gapminder <- read.csv('./hw_gapminder.csv')
 
 ### Oh hell, yeah. I have no idea where this went, let alone how to find it...
 
+So here you needed to download the hw\_gapminder.csv file and I'd recomment putting it in your current working directory (probably your homework directory, or your hw help directory). Then you use read.csv('PathToFileHere') to read it in. If you run the code above and the hw_gapminder.csv document is in the same folder as this document that should just work.  
+
+Try at least one or two of these for now. If it's taking more than 10 minutes at this point, abort.
