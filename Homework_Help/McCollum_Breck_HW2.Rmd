@@ -2,16 +2,19 @@
 title: "McCollum_Breck_HW2"
 output: html_document
 ---
-### Homework #2 preliminary warm up stuff
+Homework #2 preliminary warm up stuff
 
+```{r}
 library(gapminder)
 library(ggplot2)
 library(dplyr)
 
 head(gapminder)
+```
 
-### Okay, now that you recall what Gapminder looks like, begin trying to figure out how to make plot 1. Start with the general structure, then get fancier with shapes, colors, regressions, trend lines etc...
+Okay, now that you recall what Gapminder looks like, begin trying to figure out how to make plot 1. Start with the general structure, then get fancier with shapes, colors, regressions, trend lines etc...
 
+```{r}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
 
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) + geom_point()
@@ -19,16 +22,19 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) + g
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, shape = continent)) + geom_point()
 
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent, shape = continent)) + geom_point()
+```
 
-### Whoohoo! that didn't take too long to figure out! I had a feeling that it wouldn't let me assign two different "aesthics" to continent, but it didn't actually fight me at all!
+Whoohoo! that didn't take too long to figure out! I had a feeling that it wouldn't let me assign two different "aesthics" to continent, but it didn't actually fight me at all!  
 
 
 
-### Now on to transformations...
+####Now on to transformations...
 
-### "ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent, shape = continent)) + geom_point()" was the line of code that got us to this point, but as much fun as it is to copy and paste that where ever I need it, I think I ought to give it a code name. How about "p1" for plot 1?
+"ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent, shape = continent)) + geom_point()" was the line of code that got us to this point, but as much fun as it is to copy and paste that where ever I need it, I think I ought to give it a code name. How about "p1" for plot 1?  
 
+```{r}
 p1 <- ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent, shape = continent)) + geom_point()
+```
 
 ### Now lets see how we can transform these data...
 
