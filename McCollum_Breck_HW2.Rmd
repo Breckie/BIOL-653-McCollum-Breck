@@ -91,30 +91,49 @@ p2 + geom_line()
 See this answer as an example  
 http://stackoverflow.com/questions/16562859/ggplot2-colour-geom-point-by-factor-but-geom-smooth-based-on-all-data
 
-### Yikes, undo! Now I am headed in the wrong direction...There must be some way I can do an overall linear regression, rather than one for each continent...
 
-ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, color = continent, shape = continent)) + geom_point() + geom_smooth(method = lm)
+*10/15/15 2nd attempt Note that my "a" key doesnt work very well so there re likely to be typos where it is missing such as the above "_re"
 
-ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, color = continent, shape = continent)) + geom_point() + geom_smooth(method = log(gdpPercap))
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, color = continent, shape = continent)) + geom_point()
 
-ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, color = continent, shape = continent)) + geom_point() + geom_smooth(x = log(gdpPercap))
+this gets me bck to the last place where I was close. Now I am trying to add a trend line.
+This is what they say at the above link Jillin provided:
 
-###Fuuuuuuuuuuuuuck. I don't know about this one. This (from http://www.r-bloggers.com/how-to-draw-the-line-with-ggplot2/) looks a bit complicated but I'll try it... 
+###ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point(aes(colour=factor(cyl))) + geom_smooth(method="lm")
+    
+###...
+    
+###Step 2: Draw the point geometry, using the factors of 'cyl' to color the points. This is what the original 'qplot' function was doing, but we're specifying it a little more explicitly.
 
-### plot.y <- qplot(y=Temp, x=Wind, data=data)
-### model.y <- lm(Temp ~ Wind, data)
-### coef.y <- coef(model.y)
-### plot.y + geom_abline(intercept=coef.y[1],
-### slope=coef.y[2])
+    geom_point(aes(colour=factor(cyl)))
 
-ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, color = continent, shape = continent)) + geom_point() + geom_smooth(method = lm(lifeExp ~ log(gdpPercap, gapminder))
+###Step 3: Draw the smoothed linear model. This is exactly what the OP wrote before, but now that the aesthetic of coloring is no longer part of the defaults, the model draws as intended.
 
-### Nope. Try again.
+    geom_smooth(method="lm")
 
-model.y <- lm(lifeExp ~ log(gdpPercap, gapminder))
+So, in my attempt, I have the aesthetics listed earlier, color = continent, shpe = continent etc...
 
-### Okay this is really frustrating. I am moving on before I throw my laptop out the window.
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, color = continent, shape = continent)) + geom_point()
 
+Also, side note, method="lm" has something to do with "fit a linear model line", which is probably the same thing that I mean by "trend line" only using real life adult science words...
+
+So I am going to try to regurgitate what the good folks at stack overflow just showed me:
+
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) + geom_point(color = continent, shape = continent) + geom_smooth(method = "lm")
+
+Huh, well I had high hopes for that one, but it didn't work at all...
+
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) + geom_point(color = continent, shape = continent)
+
+It's not the "geom_smooth" part it seems to hate
+Ooh maybe I forgot the extra 'aes' bit?
+
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) + geom_point(aes(color = continent, shape = continent)) + geom_smooth(method = "lm")
+
+DUDE. It's about fucking time.
+Okay, I am going to delete the rest of my failed attempts on this question from this draft...
+
+__________________________________________________________________________
 
 ### For Plot 4, I need to histogram life expectancy for each continent by year, in a handful of tiles. This sounds really, really difficult...
 
@@ -143,7 +162,9 @@ ggplot(data = gapminder, aes(x = lifeExp, color = continent)) + geom_density(ker
 
 ### WTF? Is this correct? It looks pretty good...No, not quite. I need to put them in 3 rows rather than a line...I wonder why "fl ~ year" didn't work?
 
-*Note* What is fl? Is it an object that *you* have in gapminder?
+*Note* What is fl? Is it an object that *you* have in gapminder? 
+
+I have zero idea what fl is. Is it something like 'lm' which stands for linear model or some shit?
 
 ```{r}
 ggplot(data = gapminder, aes(x = lifeExp, color = continent)) + geom_density(kernel = "gaussian") + facet_grid(. ~ year)
@@ -275,16 +296,116 @@ ggplot(data = gapminder[ , 2], aes(x = lifeExp, fill = continent)) + geom_densit
 **Hint** these are the arguments for filter  
 filter(dataframe\_of\_interest, col\_of\_interest == what\_you\_want)
 
+I am sorry but this means nothing to me.
 
+Backing up, so here again I am trying to histogram lifeExp in Asia, make it green and add a "linear model line"
+
+head(gapminder)
+
+first column is country, 2nd is continent, 3rd is year, 4th is lifeExp
+
+I interpret Jillian's hint to mean:
+filter(gapminder, continent == Asia)
+
+Fuck. It still doesn't know what Asia is. Maybe mine is racist?
+
+filter(gapminder, continent == Americas)
+
+Nope not racist, well THERE'S SOMETHING GOOD at least...
+
+Okay I have no idea what the hell to do here and like data frame making and shit is way beyond my skill set at the moment
 
 ### Okay so I am not getting any closer with this one. I need to take a break and move on to the next question.
 
+As a learning tool, I am going to use my peer review assignment to help me out. I am following along with Lucy's mirculous coding skills. 
+
+Most of the time I feel like having smart people around in our "Intro" class is like when those yoga pros sit in on the beginner yoga classes just to make us all feel like assholes for not being able to hold downward dog for more than a few seconds.  
+
+But in this case it might actually be helpful. I just wish I knew what reviewer to hide from.
+
+Lucy puts her Asia in quotations. I don't even want to try that because that is going to be super embarrassing when that fixes everything.
+
+filter(gapminder, continent == "Asia")
+
+Goddammit. Maybe I need to look into Culinary School?
+
+She even puts titles and shit on hers.
+All of the things she wrote appears to make perfect sense up until the geom_vline() part.
+
+I need to work through that for a bit.
+These next 2 code bits are what Lucy wrote:
+
+asia_data <- filter(gapminder, continent == "Asia")
+
+ggplot(data= asia_data, aes(x = lifeExp,y = , color = continent, fill = continent)) + geom_density(color = "black", alpha = 0.6, fill = "green") + geom_vline(xintercept = mean(asia_data$lifeExp)) + ggtitle("Life Expectancy in Asia")
+
+?geom_vline
+
+Cool, there is actually some good stuff there, and in conjunction with the "mean(asia_data$lifeExp" stuff Lucy wrote, that kind of makes sense. I don't know exactly what the $ means, and I have zero chance of figuring that out on my own in the wild, but here it seems like logical computer-speak. Maybe in the future I will remember to refer to this page and regurgitate stuff as such.
+
+Okay, on to how Lucy made a data frame of lifeExp for each continent...
+
+She uses these things "%>%"" which are actually super UNHELPFUL to me at this point. Shortcuts are great and all but I need to see actual code progressions to know what things are doing and why they are doing them.
+
+From Lucy,
+
+meanLife <- gapminder %>% group_by(continent) %>% summarise(avg_life= mean(lifeExp))
+
+gapminder %>% group_by(continent) %>% summarise(avg_life= mean(lifeExp))
+
+Cool, that looks the same as what is on the homework. As I would expect since Lucy wrote it.
+
+This next part should be really similar to what Lucy just showed me how to do for Asia only...I need to try this on my own but I know the correct answer is close by for when I get invariably stuck.
+
+She starts be calling this code line by a code name (see what I did there?)
+
+so code line "gapminder %>% group_by(continent) %>% summarise(avg_life= mean(lifeExp))"
+
+now goes by "meanLife"
+
+Back when we/she was dealing with Asia, she wrote, 
+
+"asia_data <- filter(gapminder, continent == "Asia")
+
+ggplot(data= asia_data, aes(x = lifeExp,y = , color = continent, fill = continent)) + geom_density(color = "black", alpha = 0.6, fill = "green") + geom_vline(xintercept = mean(asia_data$lifeExp)) + ggtitle("Life Expectancy in Asia")"
+
+So I am going to modify this and try some other things...
+
+
+ggplot(data= meanLife, aes(x = lifeExp,y = , color = continent, fill = continent)) + geom_density(color = "black", alpha = 0.6, fill = continent) + geom_vline(xintercept = mean(meanLife$lifeExp)) + ggtitle("Life Expectancy by Continent")
+
+Ugh. And I know I need to make the tiles and shit from earlier...
+
+facet wrap! but not year like we did earlier, continent this time...
+
+ggplot(data= meanLife, aes(x = lifeExp,y = , color = continent, fill = continent)) + geom_density(color = "black", alpha = 0.6, fill = continent) + geom_vline(xintercept = mean(meanLife$lifeExp)) + ggtitle("Life Expectancy by Continent") + facet_wrap(~ continent)
+
+Its still fighting us with the continent stuff. It looks like there is a component of continent in the meanLife code but as Lucy used gapminder in its entiriety thats probably what my problem is.
+
+ggplot(data= gapminder, aes(x = lifeExp,y = , color = continent, fill = continent)) + geom_density(color = "black", alpha = 0.6) + geom_vline(xintercept = mean(meanLife$lifeExp)) + ggtitle("Life Expectancy by Continent") + facet_wrap(~ continent)
+
+Cool, I guess I just had fill = continent in there twice. Tht ws an honest copy and pasting error, not somehting I thought about and typed out. Lesson learned.
+
+Now I need the mean lines though...
+
+She did this WAY differently than I was going to try to do. And for the sake of saving myself another hour of hell I am going to take her word for it. It actually makes total sense wht she did. Must be nice to be a genius.
+
+
+ggplot(data= gapminder, aes(x = lifeExp, color = continent, fill = continent)) + geom_density(color = "black", alpha = 0.6) + facet_wrap(~continent) + geom_vline(data = meanLife, aes(xintercept = avg_life))
+
+________________________________________________
 library(ggplot2)
 
 hw_gapminder <- read.csv('./hw_gapminder.csv')
 
 ### Oh hell, yeah. I have no idea where this went, let alone how to find it...
 
-So here you needed to download the hw\_gapminder.csv file and I'd recomment putting it in your current working directory (probably your homework directory, or your hw help directory). Then you use read.csv('PathToFileHere') to read it in. If you run the code above and the hw_gapminder.csv document is in the same folder as this document that should just work.  
+Okay, here is what to do to get a .csv file into Rstudio. From Aaron: Download it and it is probably then in your downloads folder. Then go to 'Tools' in RStudio and click on 'Import Dataset', and 'From Text File...'. Then browse your downloads folder until you find it. Open in and it will open in an Import Database box that lets you change a few things if it is formatted oddly. Click Import and you will be all set.
 
-Try at least one or two of these for now. If it's taking more than 10 minutes at this point, abort.
+hw_gapminder <- read.csv('hw_gapminder.csv')
+
+Hmm. I must be missing something basic here. I keep getting the message that it "cannot open file 'hw_gapminder.csv': No such file or directory"
+
+library(hw_gapminder)
+
+nope, that doesnt work either.
