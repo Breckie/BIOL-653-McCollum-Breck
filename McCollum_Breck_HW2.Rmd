@@ -402,10 +402,107 @@ hw_gapminder <- read.csv('./hw_gapminder.csv')
 
 Okay, here is what to do to get a .csv file into Rstudio. From Aaron: Download it and it is probably then in your downloads folder. Then go to 'Tools' in RStudio and click on 'Import Dataset', and 'From Text File...'. Then browse your downloads folder until you find it. Open in and it will open in an Import Database box that lets you change a few things if it is formatted oddly. Click Import and you will be all set.
 
-hw_gapminder <- read.csv('hw_gapminder.csv')
+```{r}
+getwd()
+hw_gapminder <- read.csv('data/hw_gapminder.csv')
+
+# Example if you still had hw_gapminder.csv in the Downloads 
+# folder.
+#hw <- read.csv('User/breckmcc/Downloads/hw_gapminder.csv')
+```
 
 Hmm. I must be missing something basic here. I keep getting the message that it "cannot open file 'hw_gapminder.csv': No such file or directory"
+
 
 library(hw_gapminder)
 
 nope, that doesnt work either.
+Apparently library only works with packages and hw_homework is a data set and not a package.
+
+The question is to figure out what is wrong with this bit of code:
+small_set <- hw_gapminder[c(1, 2, 3, 4, 1300:1304), ('country', 'continent', 'year')]
+
+A good first step is to break it in to it's component parts and see what specifically doesn't work.
+So, try:
+x <- c(1, 2, 3, 4, 1300:1304)
+That works so that isn't where your problem is.
+
+Let's see what we are working with here:
+head(hw_gapminder)
+
+okay that all seems logical. Try more components...
+
+y <- ('country', 'continent', 'year')
+Same error, so try it with c
+
+y <- c('country', 'continent', 'year')
+
+That worked!
+
+small_set <- hw_gapminder[c(1, 2, 3, 4, 1300:1304), c('country', 'continent', 'year')]
+
+so this worked because of the extra 'c', the error that said you have unexpected ',' but didn't realize you were trying to 'use' two different sets of things (or objects). 
+c(1, 2, 3, 4) is one object, ('country', 'continent', 'year') doesnt exist as a single object without the 'c'
+
+try it this way:
+rows <- c(1, 2, 3, 4, 1300:1304)
+columns <- c('country', 'continent', 'year')
+hw_gapminder[rows, columns]
+
+small_set
+
+now these are the same
+
+________________________________________
+mean_gdp <- mean(hw_gapminder$gdpPercap)
+mean_gdp
+
+hw_gapminder$gdpPercap
+Take a look at the values, there re some weird NAs there. Check out the mean help file to see what to do
+
+
+?mean
+
+mean(x, trim = 0, na.rm = FALSE, ...)
+
+Check out what x, trim, na.rm etc... mean
+
+mean(hw_gapminder$gdpPercap, 0, na.rm = TRUE)  
+
+max_country <- hw_gapminder$country[which(hw_gapminder$lifeExp == max(hw_gapminder$lifeExp))]
+
+?which
+?==
+
+max_country
+max(hw_gapminder$lifeExp)
+hw_gapminder$lifeExp == max(hw_gapminder$lifeExp)
+which(hw_gapminder$lifeExp == max(hw_gapminder$lifeExp))
+
+hw_gapminder$country
+this just means grab that column
+
+so this "hw_gapminder$country[which(hw_gapminder$lifeExp == max(hw_gapminder$lifeExp))]" is asking what country has the highest LifeExp?
+
+hw_gapminder[804, 'country'] 
+
+is the same as
+
+hw_gapminder$country[804]
+
+but not
+
+hw_gapminder[804]
+
+because you need to specify column of some kind
+
+hw_gapminder[804, ]
+
+this gives you all the values in the different columns for row 804
+
+hw_gapminder[ , 804]
+
+doesnt work because there are not 804 columns...
+
+
+I should practice this more with the Iris exercises
