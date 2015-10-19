@@ -11,6 +11,7 @@ library(dplyr)
 
 head(gapminder)
 ```
+###Part I
 
 Okay, now that you recall what Gapminder looks like, begin trying to figure out how to make plot 1. Start with the general structure, then get fancier with shapes, colors, regressions, trend lines etc...
 
@@ -35,6 +36,7 @@ Whoohoo! that didn't take too long to figure out! I had a feeling that it wouldn
 ```{r}
 p1 <- ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent, shape = continent)) + geom_point()
 ```
+
 
 Now lets see how we can transform these data...
 
@@ -237,8 +239,6 @@ HAH, word. okay I feel pretty good about that. Onward...
 
 Holy mother, how much more is on this assignment?!
 
-
-
 Boxplot time, plot #5, this doesn't look fun either...
 
 ```{r}
@@ -262,7 +262,9 @@ ggplot(data = gapminder, aes(continent, lifeExp, color = continent)) + geom_boxp
 Hell yeah!
 
 Oh god, that was only Part 1, of how many Parts?! Jesus fucking christ...
+__________________________________________________________________
 
+###Part II
 Plot what, 6 now? Where am I? I think I made this one on accident earlier...
 
 ```{r}
@@ -417,6 +419,8 @@ ggplot(data= asia_data, aes(x = lifeExp,y = , color = continent, fill = continen
 
 Cool, there is actually some good stuff there, and in conjunction with the "mean(asia_data$lifeExp" stuff Lucy wrote, that kind of makes sense. I don't know exactly what the $ means, and I have zero chance of figuring that out on my own in the wild, but here it seems like logical computer-speak. Maybe in the future I will remember to refer to this page and regurgitate stuff as such.
 
+
+
 Okay, on to how Lucy made a data frame of lifeExp for each continent...
 
 She uses these things "%>%"" which are actually super UNHELPFUL to me at this point. Shortcuts are great and all but I need to see actual code progressions to know what things are doing and why they are doing them.
@@ -474,7 +478,10 @@ She did this WAY differently than I was going to try to do. And for the sake of 
 ```{r}
 ggplot(data= gapminder, aes(x = lifeExp, color = continent, fill = continent)) + geom_density(color = "black", alpha = 0.6) + facet_wrap(~continent) + geom_vline(data = meanLife, aes(xintercept = avg_life))
 ```
-________________________________________________
+
+------------------------------------------------------------------
+###Part III
+
 library(ggplot2)
 
 hw_gapminder <- read.csv('./hw_gapminder.csv')
