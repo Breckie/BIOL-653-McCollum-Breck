@@ -1,0 +1,101 @@
+---
+title: "my first story"
+output: html_document
+---
+
+Breckie's dumb ancient operating system wont run git.
+
+
+I have no idea what I am doing. 
+
+
+This is slightly terrifying.
+
+
+***
+
+
+Hurray! Breckie's computer ~~may still be dumb and ancient, but it~~ is no longer terrifying and will *Possibly* use Git now. Cross your fingers! things are hopeful now. okay i think its working.
+
+
+***
+
+
+Okay, day 2. I am a little less frustrated. Here is what I think is going on: You open your Rmarkdown writing project in Rstudio. This is where you do your writing, editing, creating, etc...Then if you want to send it to Git Hub to back up, you need to save the edits in Rstudio, then commit it in Git, then push it to your repository on Git Hub.
+
+***
+
+So, it's slightly more complicated than previously described. Before you can simply "commit"" the changes and "push" them out to GitHub, you need to stage them. Let me back up a little first.
+
+After saving in Rstudio, you open Terminal and see what directory you are working in. 
+
+This is normally listed in the command line as the word immediately before your name, my name is "breckmcc$". 
+
+The current directory of this file is R_projects, homework, myfirststory.Rmd. 
+
+To get into the homework directory, type "cd". 
+
+This takes you home from wherever you are. 
+
+Then type "ls", this lists all the contents of that directory. 
+
+Then type "cd and the name of the directory you want to open", such as "cd homework". 
+
+
+Now that you know where you are, you can begin the add, stage, commit, pull, push process.
+
+
+Step 1:
+  + Type: git status
+This will tell you if you are ready to proceed. If you get the error "Not a git repository (or any of the parent directories)" this means you are likely in the wrong directory or back at your home place by mistake. See above for how to get to the proper directory.
+
+You should see something along the lines of "nothing added to commit but untracked files present (use "git add" to track)".
+
+
+Step 2
+  + Type: git add filename.Rmd
+This current file you are reading was created as an Rmarkdown file, hence the affix .Rmd (The capitol R is very important).
+
+When you get no response, this is a good thing. It's way better than being yelled at, right? Apathy > anger, maybe?
+
+
+Step 3
+  + Type: git commit -m "name of  your commit"
+This is a bit vague, but let me explain "-m" denotes that you are leaving your future self a message about what changes you have made to your document, m = message. By "name of your commit" I really mean, "type your message here". It could be whatever you want, but in the current case I am just going to be calling it "fifth commit" because I am lazy and this tool isn't as useful to me now as it probably will be in the future.
+
+
+Step 4
+  + Type: git remote -v
+This tells you what repositories you have and what you are able to do with them, such as: 
+>    origin	https://github.com/Breckie/breckmccmoney.git (fetch)
+>    origin	https://github.com/Breckie/breckmccmoney.git (push)
+  
+Step 4.5
+  + What if you have created an new repository that you want to add content to, but it doesn't show up here? (probably because you forgot to initiate it)
+  + Copy the link to it such as https://github.com/Breckie/BIOL-653-McCollum-Breck
+  + Type: git remote add origin https://github.com/Breckie/BIOL-653-McCollum-Breck.git remembering to use the ".git" affix 
+  + Then Repeat Step 4 to make sure it worked..
+
+Step 5
+  + Type: git pull origin master
+This does a couple of things. First, it makes sure you are connected to a remote repository of some kind. If you are not connected or your internet connection is bad you will get this message:
+>  "fatal: unable to access 'https://github.com/Breckie/breckmccmoney.git/': Could not resolve host: github.com; nodename nor servname provided, or not known".
+  
+If you are connected and everything is working properly, you will get the happy message:
+>  "From https://github.com/Breckie/breckmccmoney
+ * branch            master     -> FETCH_HEAD
+Already up-to-date."
+
+This means everything is in good shape in your repository and you are ready to push your changes out to GitHub where you can access them remotely, share, collaborate etc...
+
+
+Step 6
+  + Type: git push master
+This is the step that actually pushed your saved, added, staged, committed changes out to GitHub.
+
+
+Step 7
+  + Go check your GitHub repository (in this case https://github.com/Breckie/breckmccmoney.git/) to make sure that your back up is now safe and happy in its new home.
+  
+  
+Hurray! You are now a Rmarkdown, Terminal, Git, and GitHub Genius! Or at least for a few days maybe not the problem student...
